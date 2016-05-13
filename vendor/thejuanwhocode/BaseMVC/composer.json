@@ -1,0 +1,19 @@
+{
+    "name": "TheJuanWhoCode/BaseMVC",
+    "description": "BaseMVC core framework",
+    "license": "MIT",
+    "keywords": ["basemvc"],
+    "authors": [
+        {
+            "name": "TheJuanWhoCode",
+            "email": "caserjan@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "thejuanwhocode\\BaseMVC\\": "src"
+        }
+    }
+}

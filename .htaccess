@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+	RewriteBase /	
+	RewriteRule ^(app/|bootstrap/|config/|vendor/|composer\.json) - [F,L,NC]
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

@@ -1,0 +1,20 @@
+{
+    "name": "baseMVC",
+    "description": "MVC framework aimed to teached new developers how to create their own MVC framework from scratch.",
+    "license": "MIT",
+    "keywords": ["basemvc","thejuanwhocode"],
+    "authors": [
+        {
+            "name": "TheJuanWhoCode",
+            "email": "caserjan@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+		"classmap": ["app/"],
+        "psr-4": {
+			"BaseMVC\\": "vendor/thejuanwhocode/BaseMVC/src/"
+        }
+    }
+}
