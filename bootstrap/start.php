@@ -9,7 +9,6 @@
  * @package baseMVC
  * @subpackage bootsrap
  **/
-<<<<<<< HEAD
 
 /**
  * Absolute path
@@ -48,4 +47,3 @@ include(dirname(__DIR__).'/vendor/autoload.php');
 \BaseMVC\Facades\App::before(function(){
      echo 'Before';
 });
->>>>>>> a942da8e19187432051b003fc2bdd20880166807

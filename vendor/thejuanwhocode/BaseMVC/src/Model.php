@@ -11,13 +11,6 @@
 abstract class Model extends \BaseMVC\Database\Connection{
      protected $table;
      protected $fillable;
-     protected $read_only;
-     
-<<<<<<< HEAD
-     function init_connection(){          
-=======
-     function init_connection(){
-          
->>>>>>> a942da8e19187432051b003fc2bdd20880166807
-     }     
+     protected $read_only;    
+
 }

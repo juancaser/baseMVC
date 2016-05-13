@@ -8,7 +8,6 @@
  * @subpackage Core
  **/
 
-<<<<<<< HEAD
 class Connection extends DBType{
      protected $table;
      protected $fillable;
@@ -25,10 +24,4 @@ class Connection extends DBType{
      public function alter(){
           
      }
-=======
-class Connection{
-     protected $table;
-     protected $fillable;
-     protected $read_only;
->>>>>>> a942da8e19187432051b003fc2bdd20880166807
 }
