@@ -15,15 +15,15 @@ return [
       **/
      'drivers'  =>   [          
           'mysql'   =>   [
-               'host'    =>   _getenv('DB_HOST', 'localhost'),
-               'schema'  =>   _getenv('DB_SCHEMA', 'basemvcdb'),
-               'user'    =>   _getenv('DB_USER', 'root'),
-               'password'=>   _getenv('DB_PASSWORD', 'ambotlang'),
-               'prefix'  =>   _getenv('DB_PREFIX', 'bm_')
+               'host'    =>   _getEnv('DB_HOST', 'localhost'),
+               'schema'  =>   _getEnv('DB_SCHEMA', 'basemvcdb'),
+               'user'    =>   _getEnv('DB_USER', 'root'),
+               'password'=>   _getEnv('DB_PASSWORD', 'ambotlang'),
+               'prefix'  =>   _getEnv('DB_PREFIX', 'bm_')
           ]
      ],
      /**
       * Select database driver, option are selected based from drivers list
       **/
-     'database_driver' => 'mysql'
+     'database_driver' => _getEnv('DB_DRIVER', 'mysql')
 ];
