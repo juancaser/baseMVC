@@ -23,27 +23,10 @@ define('ABSPATH',dirname(__DIR__));
  * @version 1
  **/
 include(__DIR__.'/helper.php');
-exit();
+
 /**
  * Vendor autoloader
  *
  * @version 1
  **/
 include(dirname(__DIR__).'/vendor/autoload.php');
-
-/*$app = \BaseMVC\App::getInstance();
-$app->before(function(){
-     echo 'Before';
-});
-$app->run();*/
-use \BaseMVC\Facades\Route;
-Route::test();
-=======
-include(dirname(__DIR__).'/vendor/autoload.php');
-
-/**
- * Load/initialize before the system starts
- **/
-\BaseMVC\Facades\App::before(function(){
-     echo 'Before';
-});
