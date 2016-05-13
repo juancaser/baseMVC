@@ -6,5 +6,4 @@
  * @version 1
  * @package baseMVC
  **/
-exit('xxxxxxxxxxxxxxxxxxxxxxxxx');
-//include(dirname(__DIR__).'/bootstrap/start.php');
+include(dirname(__DIR__).'/bootstrap/start.php');
