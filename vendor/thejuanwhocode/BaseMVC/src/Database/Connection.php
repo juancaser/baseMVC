@@ -7,21 +7,11 @@
  * @package BaseMVC
  * @subpackage Core
  **/
+use BaseMVC\Database\Driver;
 
-class Connection extends DBType{
+class Connection extends Driver{
      protected $table;
      protected $fillable;
      protected $read_only;
      
-     public function join(){          
-     }
-     public function leftJoin(){
-          
-     }
-     public function innerJoin(){
-          
-     }
-     public function alter(){
-          
-     }
 }
