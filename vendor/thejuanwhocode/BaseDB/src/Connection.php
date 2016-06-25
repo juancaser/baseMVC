@@ -1,4 +1,4 @@
-<?php namespace BaseMVC\Database;
+<?php namespace BaseDB;
 /**
  * Database connection class
  *
@@ -7,7 +7,7 @@
  * @package BaseMVC
  * @subpackage Core
  **/
-use BaseMVC\Database\Driver;
+use BaseDB\Driver;
 
 class Connection extends Driver{
      protected $table;

@@ -12,9 +12,10 @@
     "require": {},
     "require-dev": {},
     "autoload": {
-		"classmap": ["app/"],
         "psr-4": {
-			"BaseMVC\\": "vendor/thejuanwhocode/BaseMVC/src/"
+			"App\\": "app/",
+			"BaseMVC\\": "vendor/thejuanwhocode/BaseMVC/src/", 
+			"BaseDB\\": "vendor/thejuanwhocode/BaseDB/src/"
         }
     }
 }

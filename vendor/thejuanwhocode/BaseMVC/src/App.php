@@ -12,7 +12,7 @@ class App {
      private static $instance;
      private $storage = array();
      private $callbacks = array('before' => null, 'middle' => null, 'after' => null);
-     
+          
      private function __construct(){
           // Singleton
      }
@@ -29,20 +29,30 @@ class App {
      /**
       * App callbacks
       **/
-     function before(callable $callback){
-          $this->callbacks[__FUNCTION__] = $callback;
-     }
-     function middle(callable $callback){
-          $this->callbacks[__FUNCTION__] = $callback;
-     }
-     function after(callable $callback){
+     public function before($callback){
           $this->callbacks[__FUNCTION__] = $callback;
      }
      
-     function run(){
-          if(!is_null($this->callbacks['before'])) call_user_func($this->callbacks['before']);
-          if(!is_null($this->callbacks['middle'])) call_user_func($this->callbacks['middle']);
-          if(!is_null($this->callbacks['after'])) call_user_func($this->callbacks['after']);
+     public function middle($callback){
+          $this->callbacks[__FUNCTION__] = $callback;
+     }
+     
+     public function after($callback){
+          $this->callbacks[__FUNCTION__] = $callback;
+     }
+     
+     public function init(){
+          var_dump($this->callbacks['before']);
+          if(!is_null($this->callbacks['before']) && is_callable($this->callbacks['before'])){
+               exit('x');
+               call_user_func_array($this->callbacks['before'],[$this]);
+          }
+          if(!is_null($this->callbacks['middle']) && is_callable($this->callbacks['middle'])){
+               call_user_func_array($this->callbacks['middle'],[$this]);
+          }
+          if(!is_null($this->callbacks['after']) && is_callable($this->callbacks['after'])){
+               call_user_func_array($this->callbacks['after'],[$this]);
+          }
      }
      
      

@@ -9,10 +9,5 @@
  **/
 
 class App extends \BaseMVC\Facade {
-     static function getInstance(){
-          return new \BaseMVC\BaseMVC;
-     }     
-     static function getFacade(){
-          return 'app';
-     }
+     static protected $facade = '\BaseMVC\App';
 }

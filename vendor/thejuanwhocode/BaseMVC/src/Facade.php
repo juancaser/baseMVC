@@ -8,33 +8,41 @@
  * @subpackage Core
  **/
 
+use BaseMVC\Exceptions\FacadeException;
+ 
 abstract class Facade{
      static protected $facade;
+     static protected $facade_name;
      private static $facades = array();     
-
      
+
      private static function setFacadeName($facade){
-          $facade = explode('\\',$facade);
-          return array_pop($facade);
+          if(isset($facade_name)){
+               return $facade_name;
+          }else{
+               $facade = explode('\\',$facade);
+               return array_pop($facade);
+          }
      }
      
-     private static function initFacade($facade){
-          if(!class_exists('\ReflectionClass')) throw new \Exception('Cannot initialize facade.');
-          return new \ReflectionClass($facade);
+     private static function facadeInstance($facade_name){
+          if(array_key_exists($facade_name,self::$facades)){               
+               $inst = self::$facades[$facade_name];
+          }else{
+               if(!class_exists('\ReflectionClass')) throw new FacadeException('Cannot initialize facade.');
+               if(!class_exists(static::$facade)) throw new FacadeException('Class not found.');               
+               $ref = new \ReflectionClass(static::$facade);
+               $inst = $ref->newInstanceWithoutConstructor();
+               self::$facades[$facade_name] = $inst;
+          }
+          
+          return $inst;
      }
      
      static function __callStatic($name,$arguments){
-          //$app = \BaseMVC\App::getInstance();
-          $name = strtolower(static::setFacadeName(static::$facade));
-          $instance = static::initFacade(static::$facade);
-          var_dump($instance);
-          /*
-          if(!is_null($name) && isset($app->{}))
-          if(!isset(self::$facades[static::getFacade()])){
-               self::$facades[static::getFacade()] = static::getInstance();
+          $instance = static::facadeInstance(strtolower(static::setFacadeName(static::$facade)));
+          if(method_exists($instance,$name)){               
+               return call_user_func_array([$instance,$name],array($arguments));     
           }
-          var_dump($arguments);
-          return call_user_func_array(self::$facades[static::getFacade()],array($arguments));
-          */
      }
 }

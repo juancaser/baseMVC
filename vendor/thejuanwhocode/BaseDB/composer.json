@@ -1,0 +1,19 @@
+{
+    "name": "TheJuanWhoCode/BaseDB",
+    "description": "BaseMVC database library",
+    "license": "MIT",
+    "keywords": ["basedb"],
+    "authors": [
+        {
+            "name": "TheJuanWhoCode",
+            "email": "caserjan@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "thejuanwhocode\\BaseDB\\": "src"
+        }
+    }
+}

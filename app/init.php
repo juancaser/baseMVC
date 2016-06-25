@@ -9,3 +9,19 @@
  * @package baseMVC
  * @subpackage app
  **/
+use BaseMVC\Facades\App;
+
+
+App::before(function(){
+     echo 'Before';
+});
+/*
+App::middle(function(){
+     echo 'Middle';
+});
+
+App::after(function(){
+     echo 'After';
+});
+*/
+App::init();
