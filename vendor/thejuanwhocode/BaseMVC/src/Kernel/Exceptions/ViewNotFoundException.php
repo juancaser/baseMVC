@@ -1,4 +1,4 @@
-<?php namespace BaseMVC\Exceptions;
+<?php namespace BaseMVC\Kernel\Exceptions;
 /**
  * BaseMVC App
  *
@@ -8,4 +8,5 @@
  * @version 1
  * @package BaseMVC
  **/
-class FacadeException extends ReflectionException  {}
+
+class ViewNotFoundException extends \OutOfBoundsException{}

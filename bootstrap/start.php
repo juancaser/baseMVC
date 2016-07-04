@@ -7,9 +7,9 @@
  * @author TheJuanWhoCode <caserjan@gmail.com>
  * @version 1
  * @package baseMVC
- * @subpackage bootsrap
+ * @subpackage bootstrap
  **/
-
+ 
 /**
  * Absolute path
  *
@@ -31,9 +31,24 @@ include(__DIR__.'/helper.php');
  **/
 include(dirname(__DIR__).'/vendor/autoload.php');
 
+/**
+ * Let's use baseMVC app
+ **/
+use \BaseMVC\Support\Facades\App;
+use \BaseMVC\Support\Facades\Config;
+use \BaseMVC\Support\Helper\File;
+use \BaseMVC\Support\Facades\Route;
 
-if(file_exists(dirname(__DIR__).'/app/init.php'))
-     include(dirname(__DIR__).'/app/init.php');
+App::action('before', function(){
+    File::inc('app.init');
+});
 
-if(!file_exists(dirname(__DIR__).'/app/router.php')) exit();
-include(dirname(__DIR__).'/app/router.php');
+App::action('middle', function(){
+    if(!File::load('app.router')) exit();    
+});
+
+App::action('after', function(){
+    Route::run();
+});
+//Config::get('app.title');
+App::init();

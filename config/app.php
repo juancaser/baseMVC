@@ -7,3 +7,7 @@
  * @package BaseMVC
  * @subpackage Config
  **/
+
+return [
+    'document_root'   =>  dirname(__FILE__)
+];
